@@ -1,0 +1,39 @@
+<div *ngIf="!editMode else editTemplate" class="row d-flex justify-content-around align-items-center flex-nowrap">
+  <div class="col">
+    <span>{{this.user.id}}</span>
+  </div>
+  <div class="col">
+    <span>{{this.user.username}}</span>
+  </div>
+  <div class="col">
+    <span>{{this.user.name}}</span>
+  </div>
+  <div class="col">
+    <span>{{this.user.email}}</span>
+  </div>
+  <div class="col d-flex justify-content-around">
+    <button class="btn btn-warning mx-1" (click)="editMode = true">Edit</button>
+    <button class="btn btn-danger mx-1" (click)="deleteItem()">Delete</button>
+  </div>
+</div>
+
+<ng-template #editTemplate>
+  <div class="row d-flex justify-content-around align-items-center flex-nowrap">
+    <div class="col">
+      <span>{{this.user.id}}</span>
+    </div>
+    <div class="col">
+      <input [(ngModel)]="this.user.username" name="username">
+    </div>
+    <div class="col">
+      <input [(ngModel)]="this.user.name">
+    </div>
+    <div class="col">
+      <input [(ngModel)]="this.user.email">
+    </div>
+    <div class="col d-flex justify-content-around">
+      <button class="btn btn-success mx-1" (click)="editItem()">Submit</button>
+      <button class="btn btn-danger mx-1" (click)="deleteItem()">Delete</button>
+    </div>
+  </div>
+</ng-template>

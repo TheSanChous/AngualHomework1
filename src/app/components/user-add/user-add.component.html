@@ -1,0 +1,19 @@
+<form (ngSubmit)="submit(); addUserForm.reset()" #addUserForm>
+  <div class="form-row row d-flex justify-content-around align-items-center flex-nowrap">
+    <div class="col">
+      <span>Add User</span>
+    </div>
+    <div class="col">
+      <input [required]="true" type="text" class="form-control" placeholder="Username" [(ngModel)]="formData.username" name="username">
+    </div>
+    <div class="col">
+      <input [required]="true" type="text" class="form-control" placeholder="Name" [(ngModel)]="formData.name" name="name">
+    </div>
+    <div class="col">
+      <input [required]="true" type="email" class="form-control" placeholder="Email" [(ngModel)]="formData.email" name="email">
+    </div>
+    <div class="col d-flex justify-content-around">
+      <button type="submit" class="btn btn-success" [disabled]="!addUserForm.checkValidity()">Add</button>
+    </div>
+  </div>
+</form>
